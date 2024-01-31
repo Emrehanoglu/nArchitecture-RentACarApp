@@ -36,7 +36,7 @@ public class CreateBrandCommand:IRequest<CreatedBrandResponse> //CreatedBrandRes
 			await _brandRepository.AddAsync(brand);
 
 			//result 'ı CreatedBrandResponse 'a cevir
-			CreatedBrandResponse createdBrandResponse = _mapper.Map<CreatedBrandResponse>(result);
+			CreatedBrandResponse createdBrandResponse = _mapper.Map<CreatedBrandResponse>(brand);
 
 			return createdBrandResponse;
 		}

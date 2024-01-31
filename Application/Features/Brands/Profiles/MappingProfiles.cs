@@ -16,10 +16,11 @@ public class MappingProfiles:Profile
 {
     public MappingProfiles()
     {
-        //ilk parametre veritabanından gelir
-        //şablon olarak ikinci parametreye çevrilir
-        CreateMap<Brand, CreateBrandCommand>().ReverseMap();
-        CreateMap<Brand, CreatedBrandResponse>().ReverseMap();
-        CreateMap<Paginate<Brand>, GetListResponse<GetListBrandListItemDto>>().ReverseMap();
-    }
+		//ilk parametre veritabanından gelir
+		//şablon olarak ikinci parametreye çevrilir
+		CreateMap<Brand, CreateBrandCommand>().ReverseMap();
+		CreateMap<Brand, CreatedBrandResponse>().ReverseMap();
+		CreateMap<Brand, GetListBrandListItemDto>().ReverseMap();
+		CreateMap<Paginate<Brand>, GetListResponse<GetListBrandListItemDto>>().ReverseMap();
+	}
 }
