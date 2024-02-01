@@ -1,4 +1,6 @@
 ﻿using Application.Features.Brands.Commands.Create;
+using Application.Features.Brands.Commands.Update;
+using Application.Features.Brands.Queries.GetById;
 using Application.Features.Brands.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Response;
@@ -25,5 +27,22 @@ public class BrandsController : BaseController
 		GetListBrandQuery getListBrandQuery = new() { PageRequest = pageRequest };
 		GetListResponse<GetListBrandListItemDto> response = await Mediator.Send(getListBrandQuery);
 		return Ok(response);
+	}
+
+	[HttpGet("{id}")]
+	public async Task<IActionResult> GetById([FromRoute] Guid id)
+	{
+		//route yani url üzerinden id yi alıp eşitledim
+		GetByIdBrandQuery getByIdBrandQuery = new() { Id = id};
+
+		GetByIdBrandResponse response = await Mediator.Send(getByIdBrandQuery);
+		return Ok(response);
+	}
+
+	[HttpPut]
+	public async Task<IActionResult> Update([FromBody] UpdateBrandCommand updateBrandCommand)
+	{
+		UpdatedBrandResponse response = await Mediator.Send(updateBrandCommand);
+		return Ok();
 	}
 }
