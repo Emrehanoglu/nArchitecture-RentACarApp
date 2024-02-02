@@ -39,7 +39,7 @@ public class BrandsController : BaseController
 		GetByIdBrandResponse response = await Mediator.Send(getByIdBrandQuery);
 		return Ok(response);
 	}
-
+	 
 	[HttpPut]
 	public async Task<IActionResult> Update([FromBody] UpdateBrandCommand updateBrandCommand)
 	{
