@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Services.Repositories;
-									   //asenkron				senkron
+//asenkron				senkron
 public interface IBrandRepository:IAsyncRepository<Brand,Guid>,IRepository<Brand,Guid>
 {
 }
