@@ -1,4 +1,5 @@
-﻿using Core.Application.Pipelines.Validation;
+﻿using Core.Application.Pipelines.Transaction;
+using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,7 @@ public static class ApplicationServiceRegistration
 
 			//Artık Command veya Query calıstıracaksan once buradaki Middleware 'den geçir demiş oldum.
 			configuration.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
+			configuration.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
 		});
 
 		return services;
